@@ -5,8 +5,10 @@
     <version>1.0.0</version>
     <authors>Stephen Phillips</authors>
     <owners>Stephen Phillips</owners>
+    <licenseUrl>https://github.com/Korthax/TableQueryParser/blob/master/LICENSE.md</licenseUrl>
+    <projectUrl>https://github.com/Korthax/TableQueryParser</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Provides extension methods to the TableQuery class, which allow it to be run against in memory objects.</description>
+    <description>Provides extension methods to the TableQuery class which allow it to be run against in-memory objects..</description>
     <copyright>Copyright 2016</copyright>
     <tags>Azure TableStorage Query Parser</tags>
     <dependencies>
