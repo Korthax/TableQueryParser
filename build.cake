@@ -2,6 +2,7 @@
 
 var target = Argument("target", "Default");
 var configuration = Argument("configuration", "Release");
+var frameworks = new string[] { "net45", "net46" };
 
 Task("Restore")
     .Does(() =>
@@ -14,14 +15,20 @@ Task("Build")
     .IsDependentOn("Restore")
     .Does(() =>
     {
-        var settings = new MSBuildSettings {
-            Verbosity = Verbosity.Minimal,
-            ToolVersion = MSBuildToolVersion.VS2017,
-            Configuration = "Release",
-        };
+        foreach(var framework in frameworks)
+        {
+            var settings = new MSBuildSettings 
+            {
+                Verbosity = Verbosity.Minimal,
+                ToolVersion = MSBuildToolVersion.VS2017,
+                Configuration = "Release"
+            };
 
-        foreach(var solution in GetFiles("./**/*.sln"))
-            MSBuild(solution, settings);
+            settings.Properties.Add("Framework", new List<string> { framework });
+
+            foreach(var solution in GetFiles("./**/*.sln"))
+                MSBuild(solution, settings);
+        }
     });
 
 Task("Test")
