@@ -14,8 +14,7 @@ namespace TableQueryParser.Core.Values
 
         public bool LessThan(object value)
         {
-            double numeric;
-            if (!IsNumeric(value, out numeric))
+            if (!IsNumeric(value, out double numeric))
                 return false;
 
             return _value < numeric;
@@ -23,8 +22,7 @@ namespace TableQueryParser.Core.Values
 
         public bool GreaterThan(object value)
         {
-            double numeric;
-            if (!IsNumeric(value, out numeric))
+            if (!IsNumeric(value, out double numeric))
                 return false;
 
             return _value > numeric;
@@ -32,8 +30,7 @@ namespace TableQueryParser.Core.Values
 
         public bool EqualTo(object value)
         {
-            double numeric;
-            if (!IsNumeric(value, out numeric))
+            if (!IsNumeric(value, out double numeric))
                 return false;
 
             return Math.Abs(_value - numeric) < double.Epsilon;
@@ -43,15 +40,12 @@ namespace TableQueryParser.Core.Values
         {
             result = 0;
 
-            if (expression == null)
-                return false;
-
-            return double.TryParse(Convert.ToString(expression, CultureInfo.InvariantCulture), NumberStyles.Any, NumberFormatInfo.InvariantInfo, out result);
+            return expression != null && double.TryParse(Convert.ToString(expression, CultureInfo.InvariantCulture), NumberStyles.Any, NumberFormatInfo.InvariantInfo, out result);
         }
 
         public override string ToString()
         {
-            return string.Format("{0}", _value);
+            return $"{_value}";
         }
     }
 }

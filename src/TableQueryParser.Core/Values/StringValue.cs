@@ -32,7 +32,7 @@ namespace TableQueryParser.Core.Values
 
         public override string ToString()
         {
-            return string.Format("\"{0}\"", _value);
+            return $"\"{_value}\"";
         }
     }
 }

@@ -20,12 +20,10 @@ namespace TableQueryParser.Core.Values
             if (data.Equals("true") || data.Equals("false"))
                 return new BooleanValue(bool.Parse(data));
 
-            double number;
-            if (double.TryParse(data, NumberStyles.Number, CultureInfo.CurrentCulture, out number))
+            if (double.TryParse(data, NumberStyles.Number, CultureInfo.CurrentCulture, out double number))
                 return new NumericValue(number);
 
-            long longNumber;
-            if (long.TryParse(data.TrimEnd('L', 'l'), NumberStyles.Number, CultureInfo.CurrentCulture, out longNumber))
+            if (long.TryParse(data.TrimEnd('L', 'l'), NumberStyles.Number, CultureInfo.CurrentCulture, out long longNumber))
                 return new LongNumericValue(longNumber);
 
             return new UnknownValue();

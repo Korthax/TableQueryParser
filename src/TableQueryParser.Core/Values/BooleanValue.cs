@@ -23,14 +23,12 @@ namespace TableQueryParser.Core.Values
 
         public bool EqualTo(object value)
         {
-            if(value is bool)
-                return _value == (bool)value;
-            return false;
+            return _value == value as bool?;
         }
 
         public override string ToString()
         {
-            return string.Format("{0}", _value);
+            return $"{_value}";
         }
     }
 }

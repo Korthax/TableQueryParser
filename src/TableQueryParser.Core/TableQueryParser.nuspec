@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>TableQueryParser</id>
-    <version>1.0.0</version>
+    <version>0.0.0</version>
     <authors>Stephen Phillips</authors>
     <owners>Stephen Phillips</owners>
     <licenseUrl>https://github.com/Korthax/TableQueryParser/blob/master/LICENSE.md</licenseUrl>
@@ -12,7 +12,12 @@
     <copyright>Copyright 2016</copyright>
     <tags>Azure TableStorage Query Parser</tags>
     <dependencies>
-      <dependency id="WindowsAzure.Storage" version="6.2.0" />
+      <group targetFramework="net45">
+        <dependency id="WindowsAzure.Storage" version="6.2.0" />
+      </group>
     </dependencies>
   </metadata>
+  <files>
+    <file src="bin\Release\TableQueryParser.Core*.*" target="lib\net45" />
+  </files>
 </package>
