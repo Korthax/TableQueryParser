@@ -1,6 +1,7 @@
 #tool "nuget:?package=NUnit.ConsoleRunner"
 
 var target = Argument("target", "Default");
+var tag = Argument("tag", "*");
 var configuration = Argument("configuration", "Release");
 var frameworks = new string[] { "net45", "net46" };
 
@@ -41,11 +42,12 @@ Task("Test")
 
 Task("Pack")
     .IsDependentOn("Test")
+    .WithCriteria(() => tag != "*")
     .Does(() =>
     {
         var nuGetPackSettings   = new NuGetPackSettings 
         {
-            Version = "1.0.1",
+            Version = tag,
             OutputDirectory = "./artifacts/"
         };
 

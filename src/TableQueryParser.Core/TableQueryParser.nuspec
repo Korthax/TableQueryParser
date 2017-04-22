@@ -2,6 +2,7 @@
 <package >
   <metadata>
     <id>TableQueryParser</id>
+    <title>TableQueryParser</title>
     <version>0.0.0</version>
     <authors>Stephen Phillips</authors>
     <owners>Stephen Phillips</owners>
@@ -9,14 +10,15 @@
     <projectUrl>https://github.com/Korthax/TableQueryParser</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Provides extension methods to the TableQuery class which allow it to be run against in-memory objects.</description>
-    <copyright>Copyright 2016</copyright>
+    <summary>Validate and filter Azure TableQuery against objects.</summary>
+    <copyright>Copyright (c) Steve Phillips 2017</copyright>
     <tags>Azure TableStorage Query Parser</tags>
     <dependencies>
       <group targetFramework="net45">
-        <dependency id="WindowsAzure.Storage" version="6.2.0" />
+        <dependency id="WindowsAzure.Storage" version="8.1.1" />
       </group>
       <group targetFramework="net46">
-        <dependency id="WindowsAzure.Storage" version="6.2.0" />
+        <dependency id="WindowsAzure.Storage" version="8.1.1" />
       </group>
     </dependencies>
   </metadata>
